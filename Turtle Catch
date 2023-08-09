@@ -1,0 +1,59 @@
+import turtle
+
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("white")
+drawing_board.setup(1900, 900)
+
+#TEXT
+turtle_text = turtle.Turtle()
+
+
+turtle_text.hideturtle()
+turtle_text.penup()
+
+#MESSAGE
+turtle_text.setposition(-50, 350)
+
+
+
+
+#SKOR
+import random
+
+    
+point = 0
+
+# method to action
+def skor(x,y):
+    # some motion
+    turtle.right(random.randint(-360, 360))
+    turtle.forward(random.randint(100, 200))
+    global point
+    point += 1
+    turtle_text.clear()
+    message = f"Score {point}"
+    turtle_text.write(message,move=False, font=('monaco',30,'bold'),align='left')
+
+    
+  
+# turtle speed to slowest
+turtle.penup()
+turtle.speed(0)
+turtle.shapesize(3, 3, 3)
+  
+# motion
+#turtle.fd(100)
+  
+# allow user to click 
+# for some action
+turtle.onclick(skor)
+
+
+
+
+
+print(point)
+
+
+
+turtle.done()
